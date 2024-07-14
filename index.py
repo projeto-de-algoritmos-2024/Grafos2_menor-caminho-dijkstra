@@ -1,3 +1,4 @@
+import osmnx as ox
 import heapq
 
 def dijkstra (graph, start, end):
@@ -36,3 +37,21 @@ def dijkstra (graph, start, end):
     path = path[::-1]
 
     return path
+
+place_name = "Santa Maria, DF, Brasil"
+
+graph = ox.graph_from_place(place_name, network_type='drive')
+start_latlng = (-16.040755, -48.034199) # A coordenada do ponto inicial
+end_latlng = (-16.040521, -48.030425) # Aqui é a coordenada do ponto final
+
+try:
+    start = ox.distance.nearest_nodes(graph, start_latlng[1], start_latlng[0])
+    end = ox.distance.nearest_nodes(graph, end_latlng[1], end_latlng[0])
+except ImportError as e:
+    print(e)
+    raise e
+
+route = dijkstra(graph, start, end)
+route_coordinates = [(graph.nodes[node]['y'], graph.nodes[node]['x']) for node in route]
+
+print(route_coordinates)
