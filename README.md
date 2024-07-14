@@ -65,3 +65,7 @@ Após ter rodado o comando de execução do algoritmo, ele vai uma pasta **cache
 No mesmo diretório onde está o arquivo **index.py** vai ter sido criado também o arquivo **mapa_com_menor_caminho.html**. Esse arquivo é o mapa interativo que foi criado após o código de execução ter sido executado no terminal.
 
 Acesse o diretório do arquivo e abra o arquivo **mapa_com_menor_caminho.html** para poder visualizar a rota do menor caminho, entre os pontos A e B que foram selecionado, que o algoritmo de Dijkstra criou.
+
+## Outros
+- [Link apresentação](https://www.youtube.com/watch?v=fExrtBxJV8M)
+
