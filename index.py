@@ -1,5 +1,6 @@
 import osmnx as ox
 import heapq
+import folium
 
 def dijkstra (graph, start, end):
     queue = [(0, start)]
@@ -55,3 +56,12 @@ route = dijkstra(graph, start, end)
 route_coordinates = [(graph.nodes[node]['y'], graph.nodes[node]['x']) for node in route]
 
 print(route_coordinates)
+
+my_map = folium.Map(location=start_latlng, zoom_start=14)
+folium.PolyLine(route_coordinates, color="blue", weight=5, opacity=0.7).add_to(my_map)
+folium.Marker(location=start_latlng).add_to(my_map)
+folium.Marker(location=end_latlng).add_to(my_map)
+
+my_map.save("mapa_com_menor_caminho.html")
+
+print("O mapa com a rota foi salvo com sucesso!")
