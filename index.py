@@ -59,8 +59,8 @@ print(route_coordinates)
 
 my_map = folium.Map(location=start_latlng, zoom_start=14)
 folium.PolyLine(route_coordinates, color="blue", weight=5, opacity=0.7).add_to(my_map)
-folium.Marker(location=start_latlng).add_to(my_map)
-folium.Marker(location=end_latlng).add_to(my_map)
+folium.Marker(location=start_latlng, popup='Start', icon=folium.Icon(color='green')).add_to(my_map)
+folium.Marker(location=end_latlng, popup='End', icon=folium.Icon(color='red')).add_to(my_map)
 
 my_map.save("mapa_com_menor_caminho.html")
 
